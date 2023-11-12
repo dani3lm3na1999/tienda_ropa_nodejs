@@ -24,3 +24,15 @@ exports.obtenerLogos = async (req, res) => {
         return res.status(500).send('Ocurrio un error' + error);
     }
 };
+
+exports.obtenerLogoFiltrados = async (req, res) => {
+    try {
+        var tipologo = req.params.tipo;
+        var logos;
+        logos = await logosModel.find({tipo: tipologo});
+
+        return res.status(200).send(logos);
+    } catch (error) {
+        return res.status(500).send('Ocurrio un error' + error);
+    }
+};
