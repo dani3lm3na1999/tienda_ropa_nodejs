@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API T-Shirt Store</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Bienvendios a la API</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Descripción</h2>
+                <hr>
+                <p>
+                    La API ofrece una plataforma versátil para diseñar y personalizar artículos de venta, incluyendo
+                    zapatos, tazas,
+                    camisetas y más. Esta API proporciona funciones esenciales para gestionar la creación, modificación
+                    y
+                    visualización de productos personalizados.
+                </p>
+                <p>
+                    Con esta API, los desarrolladores pueden integrar fácilmente capacidades de personalización en sus
+                    aplicaciones,
+                    permitiendo a los usuarios finales diseñar productos únicos según sus preferencias. Desde elegir
+                    materiales
+                    hasta agregar gráficos y texto, la API ofrece una amplia gama de opciones para la creación de
+                    productos a
+                    medida.
+                </p>
+                <p>
+                    Principales características de la API:
+                <ul>
+                    <li>Creación de productos personalizados con atributos como tamaño, color, y estilo.</li>
+                    <li>Adición de gráficos y textos personalizados a los productos.</li>
+                    <li>Gestión de inventario y disponibilidad de productos.</li>
+                    <li>Obtención de detalles detallados de productos personalizados.</li>
+                    <li>Integración sencilla con plataformas de comercio electrónico y aplicaciones relacionadas.</li>
+                </ul>
+                </p>
+                <p>
+                    Ya sea que estés construyendo una tienda en línea, una aplicación de diseño personalizado, o
+                    cualquier otra
+                    plataforma que requiera productos únicos, la API de Creación de Productos es la solución ideal para
+                    dar vida a
+                    la creatividad de tus usuarios.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Documentación de la API de Creación de Productos</h2>
+                <hr>
+                <h3>Prueba de la API</h2>
+                    <p>
+                        Puedes probar la API de Creación de Productos utilizando la siguiente solicitud de ejemplo.
+                        Asegúrate de
+                        modificar los datos según tus necesidades antes de realizar la prueba.
+                    </p>
+
+                    <h4>Endpoint de Creación de Productos
+                </h3>
+                <p>
+                    <strong>Método:</strong> POST<br>
+                    <strong>URL:</strong> <code>https://tu-api-creacion-productos.com/crear-producto</code>
+                </p>
+
+                <h5>Ejemplo de Datos JSON</h3>
+                    <pre>
+                        <code>
+                            {
+                            "nombre": "Zapatos Personalizados",
+                            "tipo": "Zapatos",
+                            "color": "Rojo",
+                            "talla": "42",
+                            "personalizacion": {
+                                "graficos": ["logo.png", "patron.png"],
+                                "texto": "Diseño Personalizado"
+                            }
+                            }
+                        </code>
+                    </pre>
+
+                    <h4>Respuesta Esperada</h3>
+                        <pre>
+                            <code>
+                                {
+                                "mensaje": "Producto creado exitosamente",
+                                "producto": {
+                                    "id": "12345",
+                                    "nombre": "Zapatos Personalizados",
+                                    "tipo": "Zapatos",
+                                    "color": "Rojo",
+                                    "talla": "42",
+                                    "personalizacion": {
+                                    "graficos": ["logo.png", "patron.png"],
+                                    "texto": "Diseño Personalizado"
+                                    },
+                                    "fecha_creacion": "2023-11-11T12:34:56Z"
+                                }
+                                }
+                            </code>
+                        </pre>
+                    <p>
+                        Asegúrate de incluir la información requerida y seguir las especificaciones de formato para
+                        una creación exitosa
+                        del producto.
+                    </p>
+                    <p>
+                        Para obtener más detalles sobre otros endpoints disponibles y opciones de personalización,
+                        consulta la
+                        documentación completa de la API.
+                    </p>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
