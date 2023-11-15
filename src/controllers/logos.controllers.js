@@ -17,7 +17,7 @@ exports.crearLogo = async (req, res) => {
     try {
         var logoDTO = req.body;
 
-        var urlImagen = `http://localhost:9000/uploads/${req.files[0].filename}`;
+        var urlImagen = `/uploads/${req.files[0].filename}`;
 
         var logo = new logosModel({
             url: urlImagen,
