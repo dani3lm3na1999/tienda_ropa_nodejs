@@ -55,3 +55,21 @@ exports.obtenerLogoFiltrados = async (req, res) => {
         return res.status(500).send('Ocurrio un error' + error);
     }
 };
+
+exports.obtenerLogoFiltradosPorId = async (req, res) => {
+    try {
+        const idLogo = req.params.id;
+        const logo = await logosModel.findById(idLogo);
+
+        if (!logo) {
+            return res.status(404).send('Logo no encontrado');
+        }
+
+        return res.status(200).send(logo); // Cambiado de logos a logo
+    } catch (error) {
+        return res.status(500).send('Ocurrio un error' + error);
+    }
+};
+;
+
+

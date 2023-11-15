@@ -5,5 +5,6 @@ const router = express.Router();
 router.get('/logos', logosController.obtenerLogos);
 router.post('/logos', logosController.fileUpload, logosController.crearLogo);
 router.get('/logos/:tipo', logosController.obtenerLogoFiltrados);
+router.get('/logosid/:id', logosController.obtenerLogoFiltradosPorId);
 
 module.exports = router;
