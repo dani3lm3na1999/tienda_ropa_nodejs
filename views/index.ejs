@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Bienvendios a la API</h1>
+                <h1 class="text-center">Bienvendios a la API</h1>
             </div>
         </div>
         <div class="row">
@@ -71,21 +71,21 @@
                 </h3>
                 <p>
                     <strong>Método:</strong> POST<br>
-                    <strong>URL:</strong> <code>https://tu-api-creacion-productos.com/crear-producto</code>
+                    <strong>URL Dev:</strong> <code>http://localhost:9000/</code>
                 </p>
 
                 <h5>Ejemplo de Datos JSON</h3>
                     <pre>
                         <code>
                             {
-                            "nombre": "Zapatos Personalizados",
-                            "tipo": "Zapatos",
-                            "color": "Rojo",
-                            "talla": "42",
-                            "personalizacion": {
-                                "graficos": ["logo.png", "patron.png"],
-                                "texto": "Diseño Personalizado"
-                            }
+                                "nombre": "Zapatos Personalizados",
+                                "tipo": "Zapatos",
+                                "color": "Rojo",
+                                "talla": "42",
+                                "personalizacion": {
+                                    "graficos": ["logo.png", "patron.png"],
+                                    "texto": "Diseño Personalizado"
+                                }
                             }
                         </code>
                     </pre>
@@ -94,19 +94,19 @@
                         <pre>
                             <code>
                                 {
-                                "mensaje": "Producto creado exitosamente",
-                                "producto": {
-                                    "id": "12345",
-                                    "nombre": "Zapatos Personalizados",
-                                    "tipo": "Zapatos",
-                                    "color": "Rojo",
-                                    "talla": "42",
-                                    "personalizacion": {
-                                    "graficos": ["logo.png", "patron.png"],
-                                    "texto": "Diseño Personalizado"
-                                    },
-                                    "fecha_creacion": "2023-11-11T12:34:56Z"
-                                }
+                                    "mensaje": "Producto creado exitosamente",
+                                    "producto": {
+                                        "id": "12345",
+                                        "nombre": "Zapatos Personalizados",
+                                        "tipo": "Zapatos",
+                                        "color": "Rojo",
+                                        "talla": "42",
+                                        "personalizacion": {
+                                        "graficos": ["logo.png", "patron.png"],
+                                        "texto": "Diseño Personalizado"
+                                        },
+                                        "fecha_creacion": "2023-11-11T12:34:56Z"
+                                    }
                                 }
                             </code>
                         </pre>

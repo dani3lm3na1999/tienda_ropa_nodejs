@@ -1,9 +1,28 @@
 const logosModel = require('../models/logos.models');
+const multerConfig = require('../utils/multerConfig.utils')
+const multer = require('multer')
+
+const uploads = multer(multerConfig).array('url', 1);
+
+exports.fileUpload = (req, res, next) => {
+    uploads(req, res, function(error){
+        if (error){
+            res.json({message: error});
+        }
+        return next();
+    });
+};
 
 exports.crearLogo = async (req, res) => {
     try {
         var logoDTO = req.body;
-        var logo = new logosModel(logoDTO);
+
+        var urlImagen = `http://localhost:9000/uploads/${req.files[0].filename}`;
+
+        var logo = new logosModel({
+            url: urlImagen,
+            tipo: logoDTO.tipo
+        });
 
         await logo.save();
 
