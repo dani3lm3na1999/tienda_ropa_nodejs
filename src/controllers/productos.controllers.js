@@ -88,13 +88,13 @@ exports.obtenerProductosById = async (req, res) => {
 exports.eliminarProducto = async (req, res) => {    
     try {
         var productoId = req.params.id; 
-        const resultado = await productosModel.findOneAndDelete({ _id: productoId });
+        const productos = await productosModel.findOneAndDelete({ _id: productoId });
 
-        if (!resultado) {
+        if (!productos) {
             return res.status(404).send('No se encontró el producto');
         }
 
-        res.status(200).send('Producto eliminado exitosamente');
+        res.status(200).send(productos);
     } catch (error) {
         res.status(500).send('Ocurrió un error' + error);
     }
