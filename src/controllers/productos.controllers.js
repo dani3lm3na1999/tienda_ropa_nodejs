@@ -1,7 +1,8 @@
 const productosModel = require('../models/productos.models');
 const multerConfig = require('../utils/multerConfig.utils')
 const multer = require('multer')
-
+const fs = require('fs');
+const path = require('path');
 const uploads = multer(multerConfig).array('url', 1);
 
 exports.fileUpload = (req, res, next) => {
@@ -93,6 +94,10 @@ exports.eliminarProducto = async (req, res) => {
         if (!productos) {
             return res.status(404).send('No se encontró el producto');
         }
+        const imageName = path.basename(productos.imagen);
+        console.log(imageName)
+        const imagePath = path.join(__dirname, '../uploads', imageName); // Ajusta la ruta según tu estructura
+        fs.unlinkSync(imagePath);
 
         res.status(200).send(productos);
     } catch (error) {
