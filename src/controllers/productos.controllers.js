@@ -75,7 +75,7 @@ exports.obtenerProductosById = async (req, res) => {
         productos = await productosModel.findById({_id: productoId})
                             .populate({
                                 path: "categorias", 
-                                select: "nombre -_id",
+                                select: "nombre",
                                 options: { strictPopulate: false }
                             });
         return res.status(200).send(productos);
