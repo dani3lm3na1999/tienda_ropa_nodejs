@@ -1,11 +1,32 @@
 const productosModel = require('../models/productos.models');
+const multerConfig = require('../utils/multerConfig.utils')
+const multer = require('multer')
 
+const uploads = multer(multerConfig).array('url', 1);
+
+exports.fileUpload = (req, res, next) => {
+    try {
+        uploads(req, res, function(error){
+            if (error){
+                res.json({message: error});
+            }
+            return next();
+        });
+    } catch (error) {
+        res.status(500).send('Ocurrio un error' + error);
+    }
+};
 
 exports.crearProducto = async (req, res) => {
     try {
         //
         var productoDTO = req.body;
+
+        var urlImagen = `/uploads/${req.files[0].filename}`;
+
         var producto = new productosModel(productoDTO);
+
+        producto.imagen = urlImagen;
 
         await producto.save();
         res.status(200).send(producto);
@@ -18,9 +39,30 @@ exports.obtenerProductos = async (req, res) => {
     try {
         var productos;
         productos = await productosModel.find()
-                    .populate('categoria');
+                            .populate({
+                                path: "categorias", 
+                                select: "nombre -_id",
+                                options: { strictPopulate: false }
+                            });
 
         res.status(200).send(productos);
+    } catch (error) {
+        res.status(500).send('Ocurrio un error' + error);
+    }
+}
+
+exports.obtenerProductosByCategoria = async (req, res) => {
+    try {
+        var categoriaId = req.params.id;
+        var productos;
+        productos = await productosModel.find({categorias: categoriaId})
+                            .populate({
+                                path: "categorias", 
+                                select: "nombre -_id",
+                                options: { strictPopulate: false }
+                            });
+
+        return res.status(200).send(productos);
     } catch (error) {
         res.status(500).send('Ocurrio un error' + error);
     }

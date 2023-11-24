@@ -25,7 +25,7 @@ const ProductosSchema = mongoose.Schema({
         enum: tipoTela,	
     },
     existencias: {
-        type: 'string',
+        type: 'number',
     },
     precio: {
         type: 'number',
@@ -39,9 +39,9 @@ const ProductosSchema = mongoose.Schema({
     pechoUrl: {
         type: 'string',
     },
-    categoria: {
+    categorias: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categoria'
+        ref: 'categorias'
     }
 });
 

@@ -17,15 +17,16 @@ const app = express();
 conectarDB();
 
 // parsear datos
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use('/uploads', express.static('src/uploads'));
 
 // Configurar el motor de plantillas EJS
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 // Configuración para usar archivos estáticos en la carpeta 'public'
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 // Configuraciones del servido
 app.use(logger('dev'));
@@ -43,7 +44,7 @@ const host = process.env.HOST || '0.0.0.0';
 
 // Ruta principal
 app.get('/', (req, res) => {
-    res.send('Hello World, Welcome yo the API Rest');
+    res.render('index');
 });
 
 // Iniciar servidor
