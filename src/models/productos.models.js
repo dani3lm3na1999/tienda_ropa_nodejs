@@ -36,7 +36,7 @@ const ProductosSchema = mongoose.Schema({
     hombroUrl: {
         type: 'string',
     },
-    pechoUrl: {
+    espaldaUrl: {
         type: 'string',
     },
     categorias: {
