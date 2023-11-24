@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="text-center">Bienvendios a la API</h1>
+                <h1 class="text-center">Bienvendios a la API MIND</h1>
             </div>
         </div>
         <div class="row">
@@ -22,7 +22,8 @@
                 <h2>Descripción</h2>
                 <hr>
                 <p>
-                    La API ofrece una plataforma versátil para diseñar y personalizar artículos de venta, incluyendo
+                    La API MIND ofrece una plataforma versátil para diseñar y personalizar artículos de venta,
+                    incluyendo
                     zapatos, tazas,
                     camisetas y más. Esta API proporciona funciones esenciales para gestionar la creación, modificación
                     y
@@ -58,68 +59,105 @@
         </div>
         <div class="row">
             <div class="col">
-                <h2>Documentación de la API de Creación de Productos</h2>
+                <h2>Documentación de la API MIND de Creación de Productos</h2>
                 <hr>
-                <h3>Prueba de la API</h2>
+                <h3>Prueba de la API</h3>
                     <p>
-                        Puedes probar la API de Creación de Productos utilizando la siguiente solicitud de ejemplo.
+                        Puedes probar la API MIND de Creación de Productos utilizando las siguiente solicitudes de ejemplo.
                         Asegúrate de
                         modificar los datos según tus necesidades antes de realizar la prueba.
                     </p>
-
-                    <h4>Endpoint de Creación de Productos
-                </h3>
                 <p>
-                    <strong>Método:</strong> POST<br>
-                    <strong>URL Dev:</strong> <code>http://localhost:9000/</code>
+                <hr>
+                <h4>Primero Obtenemos las Categorias para poder enviar un producto según su categorias</h4>
+                <strong>Método:</strong> GET<br>
+                <strong>URL Dev:</strong> <code>http://localhost:9000/api/categorias</code>
                 </p>
 
-                <h5>Ejemplo de Datos JSON</h3>
+                <h5>Respuesta Esperada</h5>
+                    <pre>
+                        <code>
+                            [
+                                {
+                                    "_id": "65506aeaecdd74690361dcb1",
+                                    "nombre": "CAMISAS",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "65506afeecdd74690361dcb3",
+                                    "nombre": "TAZAS",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "6560319821de25d301b33064",
+                                    "nombre": "COJINES"
+                                },
+                                {
+                                    "_id": "656031d321de25d301b33065",
+                                    "nombre": "LLAVEROS"
+                                },
+                                {
+                                    "_id": "656031e221de25d301b33066",
+                                    "nombre": "TERMOS"
+                                },
+                                {
+                                    "_id": "656031e621de25d301b33067",
+                                    "nombre": "UNIFORMES DEPORTIVOS"
+                                },
+                                {
+                                    "_id": "656031eb21de25d301b33068",
+                                    "nombre": "UNIFORMES EMPRESARIALES"
+                                }
+                            ]
+                        </code>
+                    </pre>
+                    <hr>
+                    <h4>Luego podemos enviar los datos de la siguiente manera desde el formato form-data</h4>
+                    <p>
+                        <strong>Método:</strong> POST<br>
+                        <strong>URL Dev:</strong> <code>http://localhost:9000/api/productos</code>
+                    </p>
+
+                    <h5>Ejemplo de Datos JSON</h5>
                     <pre>
                         <code>
                             {
-                                "nombre": "Zapatos Personalizados",
-                                "tipo": "Zapatos",
-                                "color": "Rojo",
-                                "talla": "42",
-                                "personalizacion": {
-                                    "graficos": ["logo.png", "patron.png"],
-                                    "texto": "Diseño Personalizado"
-                                }
+                                "nombre": "Llavero MIND",
+                                "descripcion": "Formas disponibles: circular, rectangular, cuadrado, casita, hueso, corazón, camisa. Diseño según preferencia tamaño 2x3.5 cm hecho de metal",                    
+                                "url": 'se debe enviar una imagen en formato (.jpeg/.png)',
+                                "existencias": 4,
+                                "precio": 3.5,
+                                "categorias": 656031d321de25d301b33065
                             }
                         </code>
                     </pre>
 
-                    <h4>Respuesta Esperada</h3>
+                    <h5>Respuesta Esperada</h5>
                         <pre>
                             <code>
                                 {
-                                    "mensaje": "Producto creado exitosamente",
-                                    "producto": {
-                                        "id": "12345",
-                                        "nombre": "Zapatos Personalizados",
-                                        "tipo": "Zapatos",
-                                        "color": "Rojo",
-                                        "talla": "42",
-                                        "personalizacion": {
-                                        "graficos": ["logo.png", "patron.png"],
-                                        "texto": "Diseño Personalizado"
-                                        },
-                                        "fecha_creacion": "2023-11-11T12:34:56Z"
-                                    }
+                                    "nombre": "Llavero MIND",
+                                    "descripcion": "Formas disponibles: circular, rectangular, cuadrado, casita, hueso, corazón, camisa. Diseño según preferencia tamaño 2x3.5 cm hecho de metal",
+                                    "existencias": 4,
+                                    "precio": 3.5,
+                                    "categorias": "656031d321de25d301b33065",
+                                    "_id": "6560b34f11eeb1ab9602aec8",
+                                    "imagen": "/uploads/MhBDHTwJz__1700836175259.png",
+                                    "__v": 0
                                 }
                             </code>
                         </pre>
-                    <p>
-                        Asegúrate de incluir la información requerida y seguir las especificaciones de formato para
-                        una creación exitosa
-                        del producto.
-                    </p>
-                    <p>
-                        Para obtener más detalles sobre otros endpoints disponibles y opciones de personalización,
-                        consulta la
-                        documentación completa de la API.
-                    </p>
+                        <hr>
+                        <p>
+                            Asegúrate de incluir la información requerida y seguir las especificaciones de formato para
+                            una creación exitosa
+                            del producto.
+                        </p>
+                        <p>
+                            Para obtener más detalles sobre otros endpoints disponibles y opciones de personalización,
+                            consulta la
+                            documentación completa de la API.
+                        </p>
             </div>
         </div>
     </div>
