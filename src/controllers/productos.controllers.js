@@ -67,3 +67,19 @@ exports.obtenerProductosByCategoria = async (req, res) => {
         res.status(500).send('Ocurrio un error' + error);
     }
 }
+
+exports.obtenerProductosById = async (req, res) => {
+    try {
+        var productoId = req.params.id;
+        var productos;
+        productos = await productosModel.findById({_id: productoId})
+                            .populate({
+                                path: "categorias", 
+                                select: "nombre -_id",
+                                options: { strictPopulate: false }
+                            });
+        return res.status(200).send(productos);
+    } catch (error) {
+        res.status(500).send('Ocurrio un error' + error);
+    }
+}
