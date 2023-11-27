@@ -5,10 +5,10 @@ const helmet = require('helmet');
 var cors = require('cors');
 
 //componets
-const conectarDB = require('./config/db')
-const categoriaRoutes = require('./routes/categorias.routes')
-const productosRoutes = require('./routes/productos.routes')
-const logosRoutes = require('./routes/logos.routes')
+const conectarDB = require('./src/config/db')
+const categoriaRoutes = require('./src/routes/categorias.routes')
+const productosRoutes = require('./src/routes/productos.routes')
+const logosRoutes = require('./src/routes/logos.routes')
 
 // conectar al servidor
 const app = express();
