@@ -32,7 +32,7 @@ app.use(express.static('public'));
 app.use(logger('dev'));
 app.use(cors({
     origin: 'http://localhost:4200',
-    credentials: true,
+    credentials: false,
   }));
 app.use(helmet());
 
