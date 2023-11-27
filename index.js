@@ -40,7 +40,14 @@ app.use(helmet());
 app.use('/api', categoriaRoutes);
 app.use('/api', productosRoutes);
 app.use('/api', logosRoutes);
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+  
 
 // Leer el localhost y variables de entorno
 const port = process.env.PORT || 9000;
