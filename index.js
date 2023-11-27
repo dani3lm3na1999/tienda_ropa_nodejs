@@ -30,7 +30,7 @@ app.use(express.static('public'));
 
 // Configuraciones del servido
 app.use(logger('dev'));
-app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+app.use(cors());
 app.use(helmet());
 
 // Middlewares
