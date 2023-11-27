@@ -95,7 +95,6 @@ exports.eliminarProducto = async (req, res) => {
             return res.status(404).send('No se encontró el producto');
         }
         const imageName = path.basename(productos.imagen);
-        console.log(imageName)
         const imagePath = path.join(__dirname, '../uploads', imageName); // Ajusta la ruta según tu estructura
         fs.unlinkSync(imagePath);
 
