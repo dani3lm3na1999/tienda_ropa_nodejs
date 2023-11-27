@@ -31,13 +31,18 @@ app.use(express.static('public'));
 // Configuraciones del servido
 app.use(logger('dev'));
 app.use(cors());
+// app.use(cors({ origin: '*', credentials: true }));
 app.use(helmet());
 
 // Middlewares
 app.use('/api', categoriaRoutes);
 app.use('/api', productosRoutes);
 app.use('/api', logosRoutes);
-
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 // Leer el localhost y variables de entorno
 const port = process.env.PORT || 9000;
