@@ -30,19 +30,14 @@ app.use(express.static('public'));
 
 // Configuraciones del servido
 app.use(logger('dev'));
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
 app.use(helmet());
 
 // Middlewares
-app.use('/api', categoriaRoutes)
+app.use('/api', categoriaRoutes);
 app.use('/api', productosRoutes);
-app.use('/api', logosRoutes)
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
+app.use('/api', logosRoutes);
+
 
 // Leer el localhost y variables de entorno
 const port = process.env.PORT || 9000;
