@@ -30,8 +30,7 @@ app.use(express.static('public'));
 
 // Configuraciones del servido
 app.use(logger('dev'));
-app.use(cors({ origin: 'https://tu-dominio-de-netlify.netlify.app', credentials: true }));
-// app.use(cors({ origin: '*', credentials: true })); 
+app.use(cors({ origin: '*', credentials: false }));
 app.use(helmet());
 
 // Middlewares
