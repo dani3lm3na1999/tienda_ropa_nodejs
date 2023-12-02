@@ -37,7 +37,11 @@ app.use(helmet());
 app.use('/api', categoriaRoutes);
 app.use('/api', productosRoutes);
 app.use('/api', logosRoutes);
-
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 // Leer el localhost y variables de entorno
 const port = process.env.PORT || 9000;
 const host = process.env.HOST || '0.0.0.0';
